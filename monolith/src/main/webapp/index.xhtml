@@ -1,0 +1,80 @@
+<!--
+
+    Copyright 2018 Rudy De Busscher (https://www.atbash.be)
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+>
+
+<h:head>
+    <title>Mortgage Similator monolith</title>
+
+</h:head>
+
+<h:body>
+
+    <h1>Mortgage simulation</h1>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Name"/>
+            <p:inputText id="name" value="#{mortgageView.name}" required="true">
+                <f:validateLength minimum="2"/>
+            </p:inputText>
+
+            <h:outputLabel for="value" value="Amount"/>
+            <p:inputNumber id="value" value="#{mortgageView.mortgageValue}" decimalPlaces="2"
+                           required="true">
+                <f:validateLongRange minValue="100.0" maxValue="1000000.0"/>
+            </p:inputNumber>
+
+            <h:outputLabel for="years" value="Years"/>
+            <p:inputNumber id="years" value="#{mortgageView.years}" decimalPlaces="0"
+                           required="true">
+                <f:validateLongRange minValue="2" maxValue="25"/>
+            </p:inputNumber>
+
+        </h:panelGrid>
+
+        <p:commandButton ajax="false" value="calculate" actionListener="#{mortgageView.calculate}"/>
+
+        <br/><br/>
+        <h:panelGroup rendered="#{empty mortgageView.calculatedInterest and not empty mortgageView.name}">
+            Mortgage denied for #{mortgageView.name}
+        </h:panelGroup>
+
+        <h:panelGroup rendered="#{not empty mortgageView.calculatedInterest}">
+            Mortgage for #{mortgageView.name} <br/>
+            Months #{mortgageView.calculatedInterest.months} <br/>
+
+            Monthly value
+            <h:outputText value="#{mortgageView.calculatedInterest.value}">
+                <f:convertNumber maxFractionDigits="2"/>
+            </h:outputText> <br/>
+
+            Total value to pay
+            <h:outputText value="#{mortgageView.calculatedInterest.value * 12 * mortgageView.years}">
+                <f:convertNumber maxFractionDigits="2"/>
+            </h:outputText>
+        </h:panelGroup>
+    </h:form>
+
+</h:body>
+
+</html>
