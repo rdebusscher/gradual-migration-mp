@@ -34,6 +34,28 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     </properties>
+
+    <description>MicroService/MicroProfile with Thorntail v2</description>
+
+    <developers>
+        <developer>
+            <id>rubus</id>
+            <name>Rudy De Busscher</name>
+            <email>rdebusscher@gmail.com</email>
+            <organization>Atbash, Belgium</organization>
+            <timezone>+1</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
     <dependencyManagement>
         <dependencies>
             <dependency>

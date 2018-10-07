@@ -29,3 +29,10 @@ MicroService implementation of the application using Thorntail v2.
 Using 4 Uber Jars.
 
 directory : thorntail
+
+## Demo 5
+
+MicroService implementation of the application using Payara Micro.
+Using hollow Jar principal.
+
+directory : payara
