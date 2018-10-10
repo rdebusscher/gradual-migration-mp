@@ -29,8 +29,6 @@ import javax.ws.rs.core.MediaType;
 @ApplicationScoped
 public class InterestService {
 
-    //https://stackoverflow.com/questions/46813309/weblogic-12-2-1-3-from-moxy-to-jackson
-
     private Client client;
 
     private String interestServiceURL;

@@ -12,7 +12,7 @@ directory : monolith
 
 Main Java EE application calls Interest MicroService implemented by KumuluzEE.
 
-directory : interest-kumuluzee
+directory : interest-kumuluzee  
 directory : ee_config
 
 ## Demo 3
@@ -20,7 +20,7 @@ directory : ee_config
 Main Java EE application calls Interest MicroService implemented by KumuluzEE.  
 Also uses an implementation of MP Rest Client
 
-directory : interest-kumuluzee
+directory : interest-kumuluzee  
 directory : ee_config_rest
 
 ## Demo 4
